@@ -1,14 +1,13 @@
-import { NonNullableFormBuilder } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>(); // New Ingredient[] after the change
+  startedEditing = new Subject<number>();
   ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 10),
   ];
-  startedEditing = new Subject<number>();
 
   getIngredients() {
     return this.ingredients.slice();
