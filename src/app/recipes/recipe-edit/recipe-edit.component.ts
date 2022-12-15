@@ -67,7 +67,7 @@ export class RecipeEditComponent implements OnInit {
       }
     }
 
-    // To added a recipe
+    // To add a recipe
     this.recipeForm = new FormGroup({
       name: new FormControl(recipeName, Validators.required),
       imagePath: new FormControl(recipeImagePath, Validators.required),
