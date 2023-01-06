@@ -15,5 +15,6 @@ export class HeaderComponent {
 
   onFetchData() {
     this.dataStorageService.fetchRecipes().subscribe();
+    // subscribe() is added at the end when tap replaced subscribe in the data-storage
   }
 }

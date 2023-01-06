@@ -24,6 +24,7 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
+    // add return after replacing subscribe with tap
     return this.httpClient
       .get<Recipe[]>(
         'https://ng-course-recipe-book-72b7b-default-rtdb.firebaseio.com/recipes.json'
