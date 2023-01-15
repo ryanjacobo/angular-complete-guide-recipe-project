@@ -1,8 +1,9 @@
+import { AuthService } from './../auth/auth.service';
 import { RecipeService } from './../recipes/recipe.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../recipes/recipe.model';
-import { map, tap } from 'rxjs/operators';
+import { exhaustMap, map, take, tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -24,7 +25,6 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    // add return after replacing subscribe with tap
     return this.httpClient
       .get<Recipe[]>(
         'https://ng-course-recipe-book-72b7b-default-rtdb.firebaseio.com/recipes.json'
@@ -40,8 +40,10 @@ export class DataStorageService {
         }),
         tap((recipes) => {
           this.recipeService.setRecipes(recipes);
-        })
+        }) // takes 1 user and unsubscribes
+        // add return after replacing subscribe with tap
       );
+
     // .subscribe((recipes) => {
     //   console.log(recipes);
     //   this.recipeService.setRecipes(recipes);
