@@ -8,7 +8,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesModule } from './recipes/recipes.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -16,11 +15,11 @@ import { RecipesModule } from './recipes/recipes.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RecipesModule,
-    ShoppingListModule,
+    // RecipesModule, // removed after implementing lazy loading
+    // ShoppingListModule,
     SharedModule,
     CoreModule,
-    AuthModule,
+    // AuthModule,
   ],
 
   bootstrap: [AppComponent],

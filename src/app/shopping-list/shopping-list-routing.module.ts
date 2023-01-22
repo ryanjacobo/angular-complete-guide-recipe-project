@@ -9,9 +9,7 @@ import { ShoppingListComponent } from './shopping-list.component';
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forChild([
-      { path: 'shopping-list', component: ShoppingListComponent },
-    ]),
+    RouterModule.forChild([{ path: '', component: ShoppingListComponent }]), // '' means path has been specified in app-routing as per lazy loading
   ],
   // exports: [RouterModule],
 })
